@@ -1,4 +1,4 @@
-package org.test.blacklist.api
+package org.test.bwl.api
 
 import akka.http.scaladsl.server.HttpApp
 
