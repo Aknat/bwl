@@ -32,7 +32,7 @@ distributions {
 
 tasks.withType(Tar) { compression = Compression.GZIP }
 
-mainClassName = "org.test.bwl.api"
+mainClassName = "org.test.bwl.Api"
 
 repositories { mavenCentral() }
 
