@@ -1,11 +1,10 @@
 package org.test.bwl.api
 
-import akka.http.scaladsl.model.HttpEntity
-import akka.http.scaladsl.model.MediaTypes.`application/json`
 import akka.http.scaladsl.server.HttpApp
-import org.test.bwl.model.conf.DB
+import org.test.bwl.api.Auth.BasicAuth
+import org.test.bwl.api.route.ApiRoute
 
-object App extends HttpApp with DB {
+object App extends HttpApp with BasicAuth with ApiRoute {
 
   def main(args: Array[String]): Unit = {
     startServer("127.0.0.1", port = 8080)
@@ -25,16 +24,5 @@ object App extends HttpApp with DB {
     // GET http:127.0.0.1:8080/api/pass?msisdn=${msisdn}&sn=$(sn)
   }
 
-  override def routes = pathPrefix("api" / "pass") {
-    get {
-      parameters('msisdn.as[Long], 'sn) { (msisdn, sn) =>
-
-        val rule = blackListRuleAccessor.get(msisdn).one
-        val pass = !rule.shortNumbers.contains(sn)
-
-        complete(HttpEntity(`application/json`, s"""{"passed":$pass}"""))
-      }
-    }
-  }
 
 }
