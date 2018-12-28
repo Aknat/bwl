@@ -3,7 +3,8 @@ package org.test.bwl.model.conf
 import com.datastax.driver.core.Cluster
 import com.datastax.driver.mapping.MappingManager
 import com.typesafe.config.ConfigFactory
-import org.test.bwl.model.dao.{BlackListRuleAccessor, ConfigAccessor, UserAccessor}
+import org.test.bwl.model.dao.UserAccessor
+import org.test.bwl.model.dao.{BlackListRuleAccessor, ConfigAccessor}
 
 import scala.collection.JavaConverters._
 

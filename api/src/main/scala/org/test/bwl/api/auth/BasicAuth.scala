@@ -1,12 +1,13 @@
-package org.test.bwl.api.Auth
+package org.test.bwl.api.auth
 
 import akka.http.scaladsl.server.Route
 import akka.http.scaladsl.server.Directives
 import akka.http.scaladsl.server.directives.Credentials
 import akka.http.scaladsl.server.directives.Credentials.Provided
+import org.test.bwl.model.dao.User
+
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
-import org.test.bwl.model.dao.User
 
 trait BasicAuth extends Directives {
 
