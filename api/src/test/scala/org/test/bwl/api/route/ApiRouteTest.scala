@@ -49,16 +49,16 @@ class ApiRouteTest extends Config {
       }
     }
 
-//    s"4. Return Forbidden error with right error body for GET requests to $uri with other role credentials" in {
-//
-//      Get(uri) ~>
-//        addCredentials(validMetricCredentials) ~>
-//        Route.seal(routes) ~> check {
-//
-//        status shouldEqual Forbidden
-//        responseAs[String] shouldEqual invalidRole + ClientRole.role
-//      }
-//    }
+    //    s"4. Return Forbidden error with right error body for GET requests to $uri with other role credentials" in {
+    //
+    //      Get(uri) ~>
+    //        addCredentials(validMetricCredentials) ~>
+    //        Route.seal(routes) ~> check {
+    //
+    //        status shouldEqual Forbidden
+    //        responseAs[String] shouldEqual invalidRole + ClientRole.role
+    //      }
+    //    }
 
     s"5. Return OK code with right body for GET requests to $uri with valid credentials" in {
       // checks that requested msisdn and sin are in BlackList
@@ -67,7 +67,7 @@ class ApiRouteTest extends Config {
         routes ~> check {
 
         status shouldEqual OK
-        entityAs[String] should include ("false")
+        entityAs[String] should include("false")
       }
     }
 
@@ -78,7 +78,7 @@ class ApiRouteTest extends Config {
         routes ~> check {
 
         status shouldEqual OK
-        entityAs[String] should include ("true")
+        entityAs[String] should include("true")
       }
     }
   }
